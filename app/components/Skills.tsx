@@ -17,14 +17,6 @@ function Skills() {
         Javascript: 0,
     });
 
-    const targetPercents: Percents = {
-        Scala: 85,
-        PHP: 90,
-        Mysql: 75,
-        Css: 45,
-        Javascript: 65,
-    };
-
     const componentRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -53,15 +45,21 @@ function Skills() {
     }, [])
 
     useEffect(() => {
-        if (isVisible) {
-            let animationFrameId;
+        const targetPercents: Percents = {
+            Scala: 85,
+            PHP: 90,
+            Mysql: 75,
+            Css: 45,
+            Javascript: 65,
+        };
 
+        if (isVisible) {
             const animate = () => {
                 const complete = JSON.stringify(targetPercents) == JSON.stringify(barPercents)
 
                 if (!complete) {
                     setBarPercents((barPercents) => {
-                        let newPercents = {...barPercents};
+                        const newPercents = {...barPercents};
 
                         Object.keys(targetPercents).forEach(key => {
                             const typedKey = key as keyof Percents;
@@ -76,7 +74,7 @@ function Skills() {
                 }
             }
 
-            animationFrameId = requestAnimationFrame(animate);
+            const animationFrameId = requestAnimationFrame(animate);
 
             return () => cancelAnimationFrame(animationFrameId);
         }

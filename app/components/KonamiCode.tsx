@@ -1,17 +1,16 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 interface KonamiCodeProps {
     onKonamiCode: () => void;
 }
 
-const KonamiCode: React.FC<KonamiCodeProps> = ({ onKonamiCode }) => {
-    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+const KonamiCode: React.FC<KonamiCodeProps> = ({onKonamiCode}) => {
     const [input, setInput] = useState<string[]>([]);
 
 
     const handleKeyDown = useCallback((event: KeyboardEvent) => {
         setInput((prevInput) => [...prevInput, event.key])
-    },[setInput]);
+    }, [setInput]);
 
 
     useEffect(() => {
@@ -22,6 +21,7 @@ const KonamiCode: React.FC<KonamiCodeProps> = ({ onKonamiCode }) => {
     }, [handleKeyDown])
 
     useEffect(() => {
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
         if (input.length > konamiCode.length) {
             setInput(input.slice(input.length - konamiCode.length));
         }
@@ -30,22 +30,21 @@ const KonamiCode: React.FC<KonamiCodeProps> = ({ onKonamiCode }) => {
             onKonamiCode()
         }
 
-    },[input, onKonamiCode, konamiCode])
+    }, [input, onKonamiCode])
 
-    const kdb = (key: string) => {
+    const kdb = (key: string, index: number) => {
         return (
-            <>
-                <div key={key} className="w-10 h-10 text-nowrap bg-white/10 shadow-lg ring-1 ring-black/5
+            <div key={index} className="w-10 h-10 text-nowrap bg-white/10 shadow-lg ring-1 ring-black/5
                 rounded-xl border border-white/15 border-b-white/25 flex justify-center
                 items-center px-3 text-xl backdrop-blur-sm">{key}</div>
-            </>
+
         )
     }
 
     return (
         <>
             <div className="h-full flex items-center justify-center gap-2">
-                {["▲","▲","▼","▼","◀︎","▶︎","◀︎","▶︎","B", "A"].map(kdb)}
+                {["▲", "▲", "▼", "▼", "◀︎", "▶︎", "◀︎", "▶︎", "B", "A"].map(kdb)}
             </div>
         </>
     )

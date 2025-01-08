@@ -32,7 +32,7 @@ function Path() {
             position: Position.bottom,
             subtitle: "Stage de fin d'étude",
             description: <>
-                J'ai réalisé un site internet en utilisant du PHP en POO, HTML, CSS, JavaScript.
+                J&apos;ai réalisé un site internet en utilisant du PHP en POO, HTML, CSS, JavaScript.
             </>
         },
         {
@@ -42,7 +42,8 @@ function Path() {
             position: Position.top,
             subtitle: "DUT en informatique",
             description: <>
-                A côté d'une formation générale, j'ai appris les fondamentaux de la programmation que j'ai approfondis en autodidacte.
+                A côté d&apos;une formation générale, j&apos;ai appris les fondamentaux de la programmation que
+                j&apos;ai approfondis en autodidacte.
             </>
         },
         {
@@ -52,7 +53,7 @@ function Path() {
             position: Position.bottom,
             subtitle: "Développeur PHP",
             description: <>
-                Je réalisais des sites dans le domaine de l'immobilier (notaires, agences immobilières).
+                Je réalisais des sites dans le domaine de l&apos;immobilier (notaires, agences immobilières).
             </>
         },
         {
@@ -62,20 +63,20 @@ function Path() {
             position: Position.top,
             subtitle: "Ingénieur en développement WEB",
             description: <>
-                    Je suis en charge au sein du pôle de la DSI de concevoir, maintenir et faire évoluer les différents
-                    sites de l'entreprise (<a className="border-b"
-                                              href="https://www.dofus.com/" target="_blank">dofus</a>, <a
-                    className="border-b" href="https://www.wakfu.com/" target="_blank">wakfu</a>, <a
-                    className="border-b" href="https://www.waven-game.com/" target="_blank">waven</a>, ...). <br/>
-                    Nous devons garantir le bon fonctionnement et la sécurité des comptes, ainsi que des paiements.
-                    Lutter contre les bots, la fraude et tout comportement nuisible à l'infrastructure web.<br/>
-                    Enfin je conseille et guide mes collègues en tant que team lead backend.
+                Je suis en charge au sein du pôle de la DSI de concevoir, maintenir et faire évoluer les différents
+                sites de l&apos;entreprise (<a className="border-b"
+                                               href="https://www.dofus.com/" target="_blank">dofus</a>, <a
+                className="border-b" href="https://www.wakfu.com/" target="_blank">wakfu</a>, <a
+                className="border-b" href="https://www.waven-game.com/" target="_blank">waven</a>, ...). <br/>
+                Nous devons garantir le bon fonctionnement et la sécurité des comptes, ainsi que des paiements.
+                Lutter contre les bots, la fraude et tout comportement nuisible à l&apos;infrastructure web.<br/>
+                Enfin je conseille et guide mes collègues en tant que team lead backend.
             </>
         }
     ]
 
-    const line = (key: string) => <>
-        <div key={key} className="grow border-b border-dashed border-gray-500"/>
+    const line = () => <>
+        <div className="grow border-b border-dashed border-gray-500"/>
     </>
 
     const item = (path: Path) => {
@@ -87,9 +88,9 @@ function Path() {
         }
 
         return (
-            <>
-                {line(`line-${path.key}`)}
-                <div key={path.key}>
+            <div className="flex grow items-center h-full" key={path.key}>
+                {line()}
+                <div>
                     <div className={`w-4 h-4 rounded-full ${bgColor} relative cursor-pointer`}
                          onClick={() => setActive(path.key)}>
                         <div className={`flex flex-col items-center absolute -translate-x-1/2 left-1/2 ${position}`}>
@@ -103,15 +104,15 @@ function Path() {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 
 
     const description = (path: Path) => {
         return (
-            <>
-                {path.key === active && <div key={path.key}>
+            <div key={path.key}>
+                {path.key === active && <div>
                     <div className="text-lg mb-4 font-bold relative">
                         {path.subtitle}
                         <div className="h-1 w-10 bg-blue-400"/>
@@ -119,8 +120,9 @@ function Path() {
                     <p className="text-sm">
                         {path.description}
                     </p>
-                </div>}
-            </>
+                </div>
+                }
+            </div>
         )
     }
 
@@ -130,7 +132,7 @@ function Path() {
                 <div className="min-h-52">
                     <div className="flex items-center h-full">
                         {paths.map(item)}
-                        {line(`line-start`)}
+                        {line()}
                     </div>
                 </div>
                 <div className="grow relative px-4 pt-4">

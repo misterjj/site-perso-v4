@@ -1,8 +1,7 @@
 import picture from '../assets/picture.jpg'
 import { TbMail } from "react-icons/tb";
 import { FaGithub } from "react-icons/fa6";
-
-
+import Image from "next/image";
 
 function Presentation() {
     const circle = "p-5 border border-gray-500 inline-block border-dashed rounded-full"
@@ -14,7 +13,7 @@ function Presentation() {
                     <div className={circle}>
                         <div className={circle}>
                             <div className={circle}>
-                                <img className="w-48 h-48 rounded-full" src={picture} alt=""/>
+                                <Image width={192} height={192} className="w-48 h-48 rounded-full" src={picture.src} alt="Jonathan jorand" unoptimized/>
                             </div>
                         </div>
                     </div>
