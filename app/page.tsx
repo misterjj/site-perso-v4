@@ -39,7 +39,7 @@ export default function Home() {
 
     return (
         <>
-            <div className="container mx-auto px-2 lg:px-0">
+            <div className="container mx-auto mt-10 px-2 lg:px-0">
                 <div className="grid gap-4 grid-cols-2 lg:grid-cols-8 my-20">
                     <div
                         className={`${boxStyle} ${konamiCodeEntered ? 'shatter-out' : ''} min-h-96 col-span-2 lg:col-span-3 xl:col-span-2`}>

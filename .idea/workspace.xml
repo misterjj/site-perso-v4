@@ -5,36 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb5adaee-659d-4135-b49b-dba82d0d6422" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/card/circuicui.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/card/pixelStorm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/card/raquetteur.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/card/rollit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/card/rtfm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/picture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hobbies.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Joke.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/KonamiCode.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OtherSkills.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Path.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Presentation.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Skills.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Stat.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/Joke.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Joke.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +47,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
-    "ts.external.directory.path": "/Users/jjorand/perso/site-perso-v4/node_modules/typescript/lib",
+    "ts.external.directory.path": "C:\\Users\\jonathan\\projets\\site-perso-v4\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
