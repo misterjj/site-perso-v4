@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react';
+"use client"
+import {useEffect, useState} from 'react';
 import circuicui from '../assets/card/circuicui.png';
 import raquetteur from '../assets/card/raquetteur.png';
 import pixelStorm from '../assets/card/pixelStorm.png';
 import rtfm from '../assets/card/rtfm.png';
 import rollit from '../assets/card/rollit.png';
+import Image, {StaticImageData} from "next/image";
 
 const images = [circuicui, raquetteur, pixelStorm, rtfm, rollit];
 
@@ -13,9 +15,9 @@ function Hobbies() {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // 5 secondes
+        }, 5000);
 
-        return () => clearInterval(intervalId); // Nettoyage de l'intervalle
+        return () => clearInterval(intervalId);
     }, []);
 
     const next = images[(currentIndex + 1) % images.length];
@@ -23,15 +25,12 @@ function Hobbies() {
     const prev = images[(currentIndex - 1 + images.length) % images.length];
     const prev2 = images[(currentIndex - 2 + images.length) % images.length];
 
-    const img = (image: string, key: number) => {
+    const img = (image: StaticImageData, key: number) => {
         let style = "left-1/2 scale-100 -translate-x-1/2 z-20 blur-0"
-
-        console.log(image, prev2, image === prev2)
 
         if (image === next) {
             style = "left-3/4 scale-75 -translate-x-1/2 z-10 blur-[2px]"
         } else if (image === prev) {
-            console.log("ici2")
             style = "left-1/4 scale-75 -translate-x-1/2 z-10 blur-[2px]"
         } else if (image === prev2) {
             style = "left-0 scale-50 translate-x-0 z-0 blur-sm"
@@ -40,9 +39,10 @@ function Hobbies() {
         }
 
         return (
-            <>
-                <img key={key} src={image} alt="" className={`absolute top-1/2 -translate-y-1/2 h-[90%] transition-all ${style}`}/>
-            </>
+            <div key={key}
+                 className={`absolute top-1/2 -translate-y-1/2 h-[90%] aspect-[5/7] transition-all ${style}`}>
+                <Image src={image.src} alt="" layout='fill' unoptimized/>
+            </div>
         )
     }
 

@@ -2,7 +2,7 @@
 
 Bienvenue sur le dépôt GitHub de mon site web personnel ! Ce projet est une vitrine de mon travail, mes compétences et ma passion pour le développement web. Il est conçu pour être à la fois fonctionnel, esthétique et refléter mon style.
 
-[Lien vers votre site web en production](https://www.jonathanjorand.fr) 
+[Lien vers votre site web en production](https://www.jonathanjorand.fr)
 
 ## Aperçu du Design : Bento Style 🍱
 
@@ -13,7 +13,7 @@ Le design de ce site s'inspire du concept de "Bento Design". Cette approche se c
 Ce projet a été réalisé en utilisant les technologies suivantes :
 
 *   **Framework Frontend :** [React](https://reactjs.org/) - Pour la création d'une interface utilisateur dynamique et réactive.
-*   **Bundler et Outil de Développement :** [Vite.js](https://vitejs.dev/) - Pour un développement rapide et une performance optimale.
+*   **Bundler et Outil de Développement :** [Next.js](https://nextjs.org/) - Pour un développement rapide et une performance optimale.
 *   **Framework CSS :** [Tailwind CSS](https://tailwindcss.com/) - Pour un style personnalisé et réutilisable, tout en conservant une cohérence visuelle.
 
 ## Comment Lancer le Projet en Local ⚙️

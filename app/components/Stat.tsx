@@ -1,3 +1,4 @@
+"use client"
 import React, {useEffect, useRef, useState} from 'react';
 
 interface StatProps {
@@ -10,23 +11,26 @@ interface StatProps {
 }
 
 const Stat: React.FC<StatProps> = ({
-   startValue,
-   endValue,
-   label,
-   icon,
-   unit = "",
-   duration = 2000
-}) => {
+                                       startValue,
+                                       endValue,
+                                       label,
+                                       icon,
+                                       unit = "",
+                                       duration = 2000
+                                   }) => {
     const [currentValue, setCurrentValue] = useState(startValue);
     const startTime = useRef<number | null>(null);
     const animationFrameId = useRef<number | null>(null);
     const labelRef = useRef<HTMLSpanElement>(null);
     const observer = useRef<IntersectionObserver | null>(null);
     const [isVisible, setIsVisible] = useState(false)
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
 
         const animateValue = (timestamp: number) => {
+            setHasAnimated(true);
+
             if (!startTime.current) {
                 startTime.current = timestamp;
             }
@@ -42,19 +46,13 @@ const Stat: React.FC<StatProps> = ({
         };
 
 
-        if (isVisible && currentValue !== endValue) {
+        if (isVisible && !hasAnimated) {
             startTime.current = null;
             animationFrameId.current = window.requestAnimationFrame(animateValue);
         }
 
-        return () => {
-            if (animationFrameId.current) {
-                if (typeof animationFrameId.current === "number") {
-                    window.cancelAnimationFrame(animationFrameId.current);
-                }
-            }
-        }
-    }, [isVisible, startValue, endValue, duration]);
+        return () => {}
+    }, [isVisible, startValue, endValue, duration, currentValue, hasAnimated]);
 
 
     useEffect(() => {
@@ -87,7 +85,7 @@ const Stat: React.FC<StatProps> = ({
 
 
     return (
-        <div  className="h-full flex flex-col items-center gap-2 justify-center">
+        <div className="h-full flex flex-col items-center gap-2 justify-center">
             <div className="text-6xl font-bold flex items-center gap-1">
                 <span className="">{currentValue}</span>
                 <span className="text-4xl text-blue-400">{unit}</span>

@@ -1,34 +1,34 @@
 import {ReactElement} from "react";
 import {
+    FaAws,
     FaBootstrap,
+    FaConfluence,
     FaDocker,
+    FaGithub,
+    FaGitlab,
     FaNpm,
     FaReact,
     FaSymfony,
-    FaYarn,
-    FaAws,
-    FaGithub,
-    FaConfluence,
     FaTicket,
-    FaGitlab
+    FaYarn
 } from "react-icons/fa6";
-import {TbBrandOauth, TbBrandVite, TbSdk, TbHttpGet} from "react-icons/tb";
+import {TbBrandOauth, TbBrandVite, TbHttpGet, TbSdk} from "react-icons/tb";
 import {
     SiElasticsearch,
     SiGnubash,
-    SiTailwindcss,
-    SiTypescript,
+    SiKibana,
     SiOpenapiinitiative,
-    SiRabbitmq,
     SiPostman,
-    SiRundeck, SiKibana
+    SiRabbitmq,
+    SiRundeck,
+    SiTailwindcss,
+    SiTypescript
 } from "react-icons/si";
 import {DiDoctrine, DiRedis} from "react-icons/di";
 import {LuCat} from "react-icons/lu";
 import {MdHttp} from "react-icons/md";
-import {GiMaskedSpider, GiBrickWall} from "react-icons/gi";
-import { BiLogoUnity } from "react-icons/bi";
-
+import {GiBrickWall, GiMaskedSpider} from "react-icons/gi";
+import {BiLogoUnity} from "react-icons/bi";
 
 
 enum Direction {
@@ -89,15 +89,15 @@ const technologies: TechnologiesLine[] = [
     {
         direction: Direction.left,
         technologies: [
-            {name: "Postman", color: "text-[#E66A3D]", logo: <SiPostman />},
-            {name: "Git", color: "text-white", logo: <FaGithub />},
-            {name: "Amazon Web Service", color: "text-[#F79500]", logo: <FaAws />},
+            {name: "Postman", color: "text-[#E66A3D]", logo: <SiPostman/>},
+            {name: "Git", color: "text-white", logo: <FaGithub/>},
+            {name: "Amazon Web Service", color: "text-[#F79500]", logo: <FaAws/>},
             {name: "Unity", color: "text-white", logo: <BiLogoUnity/>},
-            {name: "Confluence", color: "text-[#2580F7]", logo: <FaConfluence />},
-            {name: "Youtrack", color: "text-[#F33FAD]", logo: <FaTicket />},
+            {name: "Confluence", color: "text-[#2580F7]", logo: <FaConfluence/>},
+            {name: "Youtrack", color: "text-[#F33FAD]", logo: <FaTicket/>},
             {name: "Rundeck", color: "text-[#F11628]", logo: <SiRundeck/>},
-            {name: "Kibana", color: "text-[#3EB8AA]", logo: <SiKibana />},
-            {name: "Gitlab", color: "text-[#F46A25]", logo: <FaGitlab />},
+            {name: "Kibana", color: "text-[#3EB8AA]", logo: <SiKibana/>},
+            {name: "Gitlab", color: "text-[#F46A25]", logo: <FaGitlab/>},
         ]
     }
 ]
@@ -105,13 +105,11 @@ const technologies: TechnologiesLine[] = [
 function OtherSkills() {
     const item = (item: Technology, keyPrefix: string = "") => {
         return (
-            <>
-                <div key={keyPrefix + item.name} className="text-nowrap glass-effect flex justify-center
+            <div key={keyPrefix + item.name} className="text-nowrap glass-effect flex justify-center
                 gap-2 items-center px-3 text-xl min-h-10 z-10">
-                    <span className={item.color}>{item.logo}</span>
-                    <span>{item.name}</span>
-                </div>
-            </>
+                <span className={item.color}>{item.logo}</span>
+                <span>{item.name}</span>
+            </div>
         )
     }
 
@@ -121,19 +119,17 @@ function OtherSkills() {
             : "animate-slide-left";
 
         return (
-            <>
-                <div className="relative grow overflow-hidden" key={line.technologies.map(t => t.name).join()}>
-                    <div className="absolute w-full border-b border-dashed border-gray-500 z-0 top-1/2"/>
-                    <div className="flex h-full">
-                        <div className={`flex gap-24 px-12 items-center h-full ${animationClass}`}>
-                            {line.technologies.map(t => item(t))}
-                        </div>
-                        <div className={`flex gap-24 px-12 items-center h-full ${animationClass}`}>
-                            {line.technologies.map(t => item(t, "second-"))}
-                        </div>
+            <div className="relative grow overflow-hidden" key={line.technologies.map(t => t.name).join()}>
+                <div className="absolute w-full border-b border-dashed border-gray-500 z-0 top-1/2"/>
+                <div className="flex h-full">
+                    <div className={`flex gap-24 px-12 items-center h-full ${animationClass}`}>
+                        {line.technologies.map(t => item(t))}
+                    </div>
+                    <div className={`flex gap-24 px-12 items-center h-full ${animationClass}`}>
+                        {line.technologies.map(t => item(t, "second-"))}
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 
