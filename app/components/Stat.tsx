@@ -1,3 +1,4 @@
+"use client"
 import React, {useEffect, useRef, useState} from 'react';
 
 interface StatProps {
@@ -23,7 +24,7 @@ const Stat: React.FC<StatProps> = ({
     const labelRef = useRef<HTMLSpanElement>(null);
     const observer = useRef<IntersectionObserver | null>(null);
     const [isVisible, setIsVisible] = useState(false)
-    const [hasAnimated, setHasAnimated] = useState(false); // New state variable
+    const [hasAnimated, setHasAnimated] = useState(false);
 
     useEffect(() => {
 

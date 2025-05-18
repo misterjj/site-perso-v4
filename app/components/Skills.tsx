@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect, useRef } from 'react';
 
 interface Percents {
@@ -32,14 +33,15 @@ function Skills() {
             }
         );
 
-        if(componentRef.current){
-            observer.observe(componentRef.current)
+        const currentRef = componentRef.current;
+
+        if(currentRef){
+            observer.observe(currentRef)
         }
 
-
         return () => {
-            if(componentRef.current){
-                observer.unobserve(componentRef.current)
+            if(currentRef){
+                observer.unobserve(currentRef)
             }
         }
     }, [])
@@ -83,7 +85,7 @@ function Skills() {
 
     const chartLine = (name: string, position: string) => {
         return (
-            <div className={"border-dashed border-b border-gray-500 absolute w-full t-0 " + position}>
+            <div className={`border-dashed border-b border-gray-500 absolute w-full t-0 ${position}`}>
                 <span className="text-xs absolute right-full -translate-y-1/2 -translate-x-2">{name}</span>
             </div>
         );
@@ -94,8 +96,8 @@ function Skills() {
         const percent = barPercents[key] || 0;
         return (
             <div
-                className={background + " w-full rounded-t-lg flex flex-col justify-end gap-2 pb-2 relative"}
-                style={{ height: percent + "%" }}
+                className={`${background} w-full rounded-t-lg flex flex-col justify-end gap-2 pb-2 relative`}
+                style={{ height: `${percent}%` }}
             >
                 <div className="w-full justify-center items-center gap-1 font-bold hidden sm:flex">
                     <span className="md:text-4xl">{percent}</span>

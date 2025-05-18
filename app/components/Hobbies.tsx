@@ -1,3 +1,4 @@
+"use client"
 import {useEffect, useState} from 'react';
 import circuicui from '../assets/card/circuicui.png';
 import raquetteur from '../assets/card/raquetteur.png';
@@ -14,9 +15,9 @@ function Hobbies() {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 5000); // 5 secondes
+        }, 5000);
 
-        return () => clearInterval(intervalId); // Nettoyage de l'intervalle
+        return () => clearInterval(intervalId);
     }, []);
 
     const next = images[(currentIndex + 1) % images.length];

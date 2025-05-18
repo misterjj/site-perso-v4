@@ -7,7 +7,7 @@ body {
 }
 
 .glass-effect {
-    @apply bg-white/10 shadow-lg ring-1 ring-black/5 rounded-xl border border-white/15 border-b-white/25 backdrop-blur-lg;
+    @apply !bg-white/10 shadow-lg ring-1 ring-black/5 rounded-xl border border-white/15 border-b-white/25 backdrop-blur-lg;
 }
 
 @keyframes slide-right {
@@ -65,4 +65,110 @@ body {
 .shatter-out {
     animation: shatter 0.7s ease-in-out forwards;
     pointer-events: none;
+}
+
+.glowing {
+    position: relative;
+    min-width: 700px;
+    height: 550px;
+    margin: -150px;
+    transform-origin: right;
+    animation: colorChange 10s linear infinite;
+}
+
+.glowing:nth-child(even) {
+    transform-origin: left;
+}
+
+@keyframes colorChange {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.glowing span {
+    position: absolute;
+    top: calc(80px * var(--i));
+    left: calc(80px * var(--i));
+    bottom: calc(80px * var(--i));
+    right: calc(80px * var(--i));
+}
+
+.glowing span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    width: 15px;
+    height: 15px;
+    background: #f00;
+    border-radius: 50%;
+}
+
+.glowing span:nth-child(3n + 1)::before {
+    background: rgb(0, 42, 255);
+    box-shadow: 0 0 20px rgb(0, 81, 255),
+    0 0 40px rgb(0, 102, 255),
+    0 0 60px rgb(0, 102, 255),
+    0 0 80px rgb(0, 157, 255),
+    0 0 0 8px rgba(0, 196, 255, 0.1);
+}
+
+.glowing span:nth-child(3n + 2)::before {
+    background: rgb(0, 149, 255);
+    box-shadow: 0 0 20px rgb(0, 187, 255),
+    0 0 40px rgb(0, 166, 255),
+    0 0 60px rgb(0, 157, 255),
+    0 0 80px rgb(0, 166, 255),
+    0 0 0 8px rgba(0, 149, 255, 0.1);
+}
+
+.glowing span:nth-child(3n + 3)::before {
+    background: rgba(0,226,255,1);
+    box-shadow: 0 0 20px rgba(0,226,255,1),
+    0 0 40px rgba(0,226,255,1),
+    0 0 60px rgba(0,226,255,1),
+    0 0 80px rgba(0,226,255,1),
+    0 0 0 8px rgba(0,226,255,.1);
+}
+
+.glowing span:nth-child(3n + 1) {
+    animation: animate 100s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 2) {
+    animation: animate-reverse 30s alternate infinite;
+}
+
+.glowing span:nth-child(3n + 3) {
+    animation: animate 80s alternate infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(180deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate-reverse {
+    0% {
+        transform: rotate(360deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
 }
